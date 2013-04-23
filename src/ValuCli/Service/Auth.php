@@ -186,7 +186,7 @@ class Auth extends AbstractService
         if ($this->getServiceBroker()) {
             $result = $this->getServiceBroker()
                 ->service('User')
-                ->getIdentity($username, $password);
+                ->resolveIdentity($username, $password);
         }
         
         return is_array($result) ? $result : false;
