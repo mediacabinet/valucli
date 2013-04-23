@@ -17,8 +17,8 @@
     },
     "autoload": {
         "psr-0": {
-            "ValuApp\\": "src/ValuCli",
-            "ValuApp\\Test": "tests/"
+            "ValuCli\\": "src/",
+            "ValuCliTest\\": "tests/"
         }
     }
 }
