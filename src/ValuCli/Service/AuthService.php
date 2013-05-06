@@ -1,7 +1,7 @@
 <?php
 namespace ValuCli\Service;
 
-use Valu\Service\AbstractService;
+use ValuSo\Annotation as ValuService;
 use Zend\Authentication\Storage\NonPersistent;
 use Zend\Mvc\MvcEvent;
 use Zend\Console\Request as ConsoleRequest;
@@ -17,7 +17,7 @@ use Zend\Console\Adapter\AdapterInterface as Console;
  * @author juhasuni
  *
  */
-class Auth extends AbstractService
+class AuthService
 {
     
     /**
@@ -40,12 +40,13 @@ class Auth extends AbstractService
      * @var Console
      */
     private $console;
-    
-    public static function version()
-    {
-        return '0.1';
-    }
-    
+
+    /**
+     * Authenticate user
+     * 
+     * @param MvcEvent $event
+     * @return NULL|boolean|\Zend\Authentication\Result
+     */
 	public function authenticate(MvcEvent $event)
 	{
 	    // Skip if not console request
@@ -92,32 +93,6 @@ class Auth extends AbstractService
 	}
 	
 	/**
-	 * Set storage instance
-	 * 
-	 * @param StorageInterface $storage
-	 * @valu\service\ignore
-	 */
-	public function setStorage(StorageInterface $storage)
-	{
-	    $this->storage = $storage;
-	}
-	
-	/**
-	 * Retrieve storage instance
-	 * 
-	 * @return \Zend\Authentication\Storage\StorageInterface
-	 * @valu\service\ignore
-	 */
-	public function getStorage()
-	{
-	    if(!$this->storage){
-	        $this->setStorage(new NonPersistent());
-	    }
-	    
-	    return $this->storage;
-	}
-    
-    /**
      * Returns the identity or null if no identity is available
      *
      * @return mixed|null
@@ -151,6 +126,34 @@ class Auth extends AbstractService
     {
         $this->getStorage()->clear();
     }
+	
+	/**
+	 * Set storage instance
+	 * 
+	 * @param StorageInterface $storage
+	 * 
+	 * @ValuService\Exclude
+	 */
+	public function setStorage(StorageInterface $storage)
+	{
+	    $this->storage = $storage;
+	}
+	
+	/**
+	 * Retrieve storage instance
+	 * 
+	 * @return \Zend\Authentication\Storage\StorageInterface
+	 * 
+	 * @ValuService\Exclude
+	 */
+	public function getStorage()
+	{
+	    if(!$this->storage){
+	        $this->setStorage(new NonPersistent());
+	    }
+	    
+	    return $this->storage;
+	}
     
 	/**
      * @return \Zend\Console\Adapter\AdapterInterface

@@ -1,10 +1,12 @@
 <?php
 return [
-    'services' => [
-        'ValuCliAuth' => [
-            'name' => 'Auth',
-            'class' => 'ValuCli\\Service\\Auth',
-            'priority' => -50000 // Make sure this gets executed last
+    'valu_so' => [
+        'services' => [
+            'ValuCliAuth' => [
+                'name' => 'Auth',
+                'class' => 'ValuCli\\Service\\AuthService',
+                'priority' => -50000 // Make sure this gets executed last
+            ],
         ],
-    ],
+    ]
 ];
