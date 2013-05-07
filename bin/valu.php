@@ -16,10 +16,10 @@ $loader = new StandardAutoloader(array('autoregister_zf' => true));
 $loader->register();
 
 $rules = array(
-        'help|h' => 'Show this help (-h is --help only if used alone)',
-        'username|u' => 'Username',
-        'service|s' => 'Service',
-        'operation|o' => 'Operation',
+    'help|h' => 'Show this help (-h is --help only if used alone)',
+    'username|u' => 'Username',
+    'service|s' => 'Service',
+    'operation|o' => 'Operation',
 );
 
 try {
