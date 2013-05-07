@@ -46,6 +46,8 @@ class AuthService
      * 
      * @param MvcEvent $event
      * @return NULL|boolean|\Zend\Authentication\Result
+     * 
+     * @ValuService\Context("native")
      */
 	public function authenticate(MvcEvent $event)
 	{
