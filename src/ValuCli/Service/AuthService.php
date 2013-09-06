@@ -2,6 +2,7 @@
 namespace ValuCli\Service;
 
 use ValuSo\Annotation as ValuService;
+use ValuSo\Feature;
 use Zend\Authentication\Storage\NonPersistent;
 use Zend\Mvc\MvcEvent;
 use Zend\Console\Request as ConsoleRequest;
@@ -18,7 +19,9 @@ use Zend\Console\Adapter\AdapterInterface as Console;
  *
  */
 class AuthService
+    implements Feature\ServiceBrokerAwareInterface
 {
+    use Feature\ServiceBrokerTrait;
     
     /**
      * Authentication storage instance
@@ -57,6 +60,13 @@ class AuthService
 	    }
 	    
 	    $routeMatch = $event->getRouteMatch();
+	    
+	    // Use pre-defined identity, if available
+	    $identity = $routeMatch->getParam('identity');
+	    if ($identity && is_array($identity)) {
+	        $this->getStorage()->write($identity);
+	        return new Result(Result::SUCCESS, $identity);
+	    }
 	    
 	    // Fetch username and password
 	    $username = $routeMatch->getParam('user', $routeMatch->getParam('u'));
