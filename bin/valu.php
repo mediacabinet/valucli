@@ -3,7 +3,7 @@
 use Zend\Console;
 use Zend\Loader\StandardAutoloader;
 
-chdir(dirname(__DIR__).'/../..');
+chdir(dirname(__DIR__).'/../../..');
 
 // Setup autoloading
 include 'init_autoloader.php';
