@@ -1,24 +1,26 @@
 {
-    "name": "valu/valucli",
-    "description": "ValuCli module",
-    "version": "0.1.0",
-    "type": "library",
-    "keywords": [
-        "valu"
-    ],
-    "homepage": "http://www.mediacabinet.fi/",
-    "license": "BSD-3-Clause",
-    "require": {
-        "php": ">=5.4.0"
-    },
-    "require-dev": {
-        "valu/valuuser": ">=0.1.0",
-        "zendframework/zendframework": ">=2.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "ValuCli\\": "src/",
-            "ValuCliTest\\": "tests/"
-        }
-    }
+	"name" : "valu/valucli",
+	"description" : "ValuCli module",
+	"version" : "0.1.0",
+	"type" : "library",
+	"keywords" : [
+		"valu"
+	],
+	"homepage" : "http://www.mediacabinet.fi/",
+	"license" : [
+		"BSD-3-Clause"
+	],
+	"require" : {
+		"php" : ">=5.4.0"
+	},
+	"require-dev" : {
+		"valu/valuuser" : "dev-master",
+		"zendframework/zendframework" : ">=2.0"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"ValuCliTest\\" : "tests/",
+			"ValuCli\\" : "src/"
+		}
+	}
 }
