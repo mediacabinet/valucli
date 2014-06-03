@@ -8,7 +8,6 @@ use Zend\Mvc\MvcEvent;
 use Zend\Console\Request as ConsoleRequest;
 use Zend\Console\Prompt;
 use Zend\Authentication\Result;
-use Zend\Authentication\AuthenticationService;
 use Zend\Authentication\Storage\StorageInterface;
 use Zend\Console\Adapter\AdapterInterface as Console;
 
